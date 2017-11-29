@@ -1,0 +1,32 @@
+<view class="page">
+        <view class="page__hd center">
+            <view class="page__hd_speak center">
+                <image src="../../images/speak.png" />
+            </view>
+
+            <!-- hover-class="none"时，没有点击效果 -->
+            <navigator hover-class="none">   
+                <view class="page__hd_search">
+                    <image src="../../images/search.png" />
+                    <span>搜索音乐、视频、歌词、电台</span>
+                </view>
+            </navigator>
+
+            <view class="page__hd_play" ></view>
+            
+            <view class="swiper-tab">
+                <view class="swiper-tab-item">音乐</view>
+                <view class="swiper-tab-item">视频</view>
+                <view class="swiper-tab-item">电台</view>
+            </view>
+              
+        </view>
+
+        <view class="page__bd" style="width:100%; padding-top:168rpx;">
+       
+        </view>
+
+        <view class="page__ft">
+
+        </view>
+</view>
