@@ -1,0 +1,5 @@
+/* pages/test/test.wxss */
+.swiper{
+   autoplay:true;
+   interval:1000
+}

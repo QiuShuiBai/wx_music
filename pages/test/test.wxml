@@ -1,0 +1,25 @@
+<swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-dots="{{indicatorDots}}">
+        <block >  
+            <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:red;">111</view>
+            </swiper-item>  
+            <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:blue;">222</view>
+            </swiper-item>  
+            
+             <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:red;">333</view>
+            </swiper-item>  
+            <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:blue;">444</view>
+            </swiper-item>  
+
+             <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:red;">555</view>
+            </swiper-item>  
+            <swiper-item>  
+                  <view style="width:100%;height:100rpx;background-color:blue;">666</view>
+            </swiper-item>  
+             
+        </block>  
+ </swiper>  
