@@ -5,6 +5,11 @@ const app = getApp()
 Page({
   data: {
     currentTab: 0,
+    autoplay:true,
+    interval:1000,
+    duration:1000,
+    circular:true,
+    indicatorDots:true
   },
   //事件处理函数
   bindViewTap: function() {

@@ -1,42 +1,50 @@
-.page__hd{
-    background-color: #34393B;
+.page__hd {
+    background-color: #34393b;
     height: 88rpx;
     position: fixed;
     flex-wrap: wrap;
+    z-index: 9999;
 }
-.page__hd_speak{
+
+.page__hd-speak {
     width: 108rpx;
     height: 88rpx;
 }
-.page__hd_speak image{
+
+.page__hd-speak image {
     width: 38rpx;
     height: 44rpx;
 }
-.page__hd_search{
+
+.page__hd-search {
     width: 534rpx;
     height: 60rpx;
     border-radius: 40rpx;
-    background-color: #FFFFFF;
+    background-color: #fff;
     font-size: 28rpx;
-    color: #BFBFBF;
+    color: #bfbfbf;
     line-height: 60rpx;
     position: relative;
 }
-.page__hd_search image{
+
+.page__hd-search image {
     position: absolute;
     width: 32rpx;
     height: 32rpx;
-    left: 48rpx; 
+    left: 48rpx;
     top: 14rpx;
 }
-.page__hd_search span{
-  margin-left: 92rpx;
+
+.page__hd-search span {
+    margin-left: 92rpx;
 }
-.page__hd_play{
+
+.page__hd-play {
     width: 108rpx;
     height: 88rpx;
 }
-.page__hd_play:before{
+
+.page__hd-play:before {
     animation: lala 1s ease-in-out infinite;
     display: block;
     content: '';
@@ -44,21 +52,24 @@
     height: 48rpx;
     position: absolute;
     bottom: 0;
-    box-shadow: #FFFFFF 42rpx -20rpx 0 0px,
-     #FFFFFF 70rpx -20rpx 0 0px;
+    box-shadow: #fff 42rpx -20rpx 0 0px, #fff 70rpx -20rpx 0 0px;
 }
-@keyframes lala{
-  0%{
-    height: 48rpx;
-  }
-  50%{
-    height: 24rpx;
-  }
-  100%{
-    height: 48rpx;
-  }
-} 
- .page__hd_play:after{
+
+@keyframes lala {
+    0% {
+        height: 48rpx;
+    }
+
+    50% {
+        height: 24rpx;
+    }
+
+    100% {
+        height: 48rpx;
+    }
+}
+
+.page__hd-play:after {
     animation: test 1s ease-in-out infinite;
     display: block;
     content: '';
@@ -66,30 +77,119 @@
     height: 22rpx;
     position: absolute;
     bottom: 0;
-    box-shadow: #FFFFFF 28rpx -20rpx 0 0px,
-      #FFFFFF 56rpx -20rpx 0 0px;
+    box-shadow: #fff 28rpx -20rpx 0 0px, #fff 56rpx -20rpx 0 0px;
 }
 
-@keyframes test{
-  0%{
-    height: 22rpx;
-  }
-  50%{
-    height: 46rpx;
-  }
-  100%{
-    height: 22rpx;
-  }
-} 
-.swiper-tab{
-  width: 100%;
-  height: 80rpx;
-  background-color: #FFFFFF;
-  line-height: 80rpx;
-  display: flex;
+@keyframes test {
+    0% {
+        height: 22rpx;
+    }
+
+    50% {
+        height: 46rpx;
+    }
+
+    100% {
+        height: 22rpx;
+    }
 }
-.swiper-tab-item{
-  text-align: center;
-  flex: 1;
-  font-size: 30rpx;
+
+.swiper-tab {
+    width: 100%;
+    height: 80rpx;
+    background-color: #fff;
+    line-height: 80rpx;
+    display: flex;
+}
+
+.swiper-tab-item {
+    text-align: center;
+    flex: 1;
+    font-size: 30rpx;
+}
+
+.page__bd-swiper {
+    background-color: pink;
+    height: 100vh; 
+}
+
+/* ---------------------------第一个swiper页面--------------------------- */
+
+.page__bd-oneSwiper-music {
+    margin-top: 100rpx;
+    background-color: red;
+    height: 200rpx;
+}
+
+/*--------------------------以上为无缝滚动页面-------------------------*/
+.page__bd-oneSwiper-selector{
+    border-bottom: 1rpx solid #FBFCFD;
+}
+.page__bd-selector-btn {
+    width: 188rpx;
+    height: 208rpx;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.page__bd-selector-btn:last-child {
+    width: 186rpx;
+}
+/* 存放图片的盒子,圆形盒子 */
+.page__bd-selector-img {
+    width: 96rpx;
+    height: 96rpx;
+    border: 2rpx solid green;
+    background-color: red;
+    border-radius: 50%;
+    margin: 34rpx 44rpx 0; 
+}
+/* 文字盒子 */
+.page__bd-selector-words{
+    margin: 0 44rpx; 
+    font-size: 24rpx;
+    width: 100rpx;
+    text-align: center;
+}
+/*-------------------------以上为中部导航栏----------------------------*/
+.page__bd-oneSwiper-prope{
+
+    font-size: 0;
+}
+.page__bd-propr-title{
+    height: 102rpx;
+    line-height: 102rpx;
+    background-color: red;
+}
+.page__bd-propr-title text{
+    font-size: 32rpx;
+    border-left: 4rpx solid black; 
+    padding-left: 18rpx;
+}
+.page__bd-propr-content{
+    display: flex;
+     flex-wrap:wrap;
+}
+.page__bd-prope-btn {
+    width: 246rpx;
+    height: 360rpx;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: blue;
+}
+.page__bd-prope-btn:nth-child(2){
+    margin: 0 6rpx;
+}
+.page__bd-prope-btn:nth-child(5){
+    margin: 0 6rpx;
+}
+.page__bd-prope-img{
+    width: 100%;
+    height: 246rpx;
+    background-color: green;
+}
+.page__bd-prope-words{
+    width: 100%;
+    height: 114rpx;
+    background-color: yellow;
 }
