@@ -1,0 +1,21 @@
+.page__bd-list{
+    background-color: red;
+    display: flex;
+}
+.page__bd-listImage{
+    width: 140rpx;
+    height: 110rpx;
+    background-color: blue;
+}
+.page__bd-listContent{
+    box-sizing: border-box;
+    height: 110rpx;
+    width: 610rpx;
+    line-height: 110rpx;
+    border-bottom: 1rpx solid #E2E3E4;
+    display: flex;
+    justify-content: space-between;
+}
+.active{
+    border-bottom: 0rpx;
+}

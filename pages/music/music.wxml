@@ -1,0 +1,26 @@
+<!-- 导入公共文件 页面正在播放图标 -->
+<import src="../common/playing.wxml"/>
+<view class="page">
+    <view class="page__hd center">
+        <view class="page__hd-left center">更多</view>
+
+        <view class="page__hd-mid center">我的音乐</view>
+        <!-- 引入图标 -->
+         <template is="playing" />
+    </view>
+
+    <view class="page__bd">
+    <block wx:for="{{[1, 2, 3, 4]}}">
+        <view class="page__bd-list">
+            <view class="page__bd-listImage"></view>
+            <view class="page__bd-listContent {{index==3?'active':''}}">
+                <text class="page__bd-contenWords">本地音乐</text>
+                <text class="page__bd-contenNum">53></text>
+            </view>
+        </view>
+     </block>
+    </view>
+   
+    <view class="page__ft">
+    </view>
+</view>
