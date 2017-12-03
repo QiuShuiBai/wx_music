@@ -1,18 +1,21 @@
+  <!-- 导入公共文件 页面正在播放图标 -->
+<import src="../common/playing.wxml"/> 
 <view class="page">
     <view class="page__hd center">
-        <view class="page__hd-speak center">
+        <view class="page__hd-left center">
             <image src="../../images/speak.png" />
         </view>
 
         <!-- hover-class="none"时，没有点击效果 -->
         <navigator hover-class="none">
-            <view class="page__hd-search">
+            <view class="page__hd-mid">
                 <image src="../../images/search.png"/>
                 <span>搜索音乐、视频、歌词、电台</span>
             </view>
         </navigator>
 
-        <view class="page__hd-play"></view>
+        <!-- 引入图标 -->
+        <template is="playing" />
 
         <view class="swiper-tab" >
             <view class="swiper-tab-item" data-index="0" bindtap="clickTab">
@@ -28,7 +31,7 @@
 
     </view>
 
-    <view class="page__bd" style="width:100%; padding-top:168rpx;">
+    <view class="page__bd">
         <swiper class="page__bd-swiper;" current="{{currentTab}}" bindchange="swiperTab" duration="0">
             <swiper-item class="page__bd-oneSwiper" >
                 <swiper class="page__bd-oneSwiper-music" circular='true' autoplay="{{autoplay}}" indicator-dots='{{autoplay}}' interval='3000'>
