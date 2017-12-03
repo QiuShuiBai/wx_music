@@ -1,0 +1,3 @@
+<template name="playing"> 
+        <view class="page__hd-play"></view>
+</template>
