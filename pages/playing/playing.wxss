@@ -1,0 +1,135 @@
+/* pages/playing/playing.wxss */
+.bg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -99;
+    filter:blur(40rpx); 
+    background-size: cover;
+    /* transform:rotate(45deg);  旋转*/
+}
+.page{
+    position: fixed;
+}
+.page__hd{
+    background-color: black;
+    position: static;
+    opacity: .4;
+}
+.page__hd-title{
+    box-sizing: border-box;
+    margin-left: 40rpx;
+    display: flex;
+    width: 100vw;
+    flex-direction:column;
+    color: #FFFFFF;
+}
+.page__hd-title text{
+    font-size: 32rpx;
+}
+.page__hd-title text:last-child{
+    font-size: 24rpx;
+}
+.page__bd{
+    position: absolute;
+    overflow: hidden;
+    padding: 0;
+}
+
+
+.page__bd .needle{
+    position: absolute;
+    width: 190rpx;
+    height: 280rpx;
+    margin-left:336rpx;
+    margin-top:-40rpx;  
+    transform-origin: 38rpx 38rpx;
+    transform: rotateZ(0deg);
+    z-index: 10;
+}
+ .page__bd .runing{
+    transition: transform 0.4s; 
+    transform: rotateZ(-25deg);
+} 
+.disk_bg{
+    margin: 0 72rpx;
+    margin-top: 140rpx;
+    width: 574rpx;
+    height: 574rpx;
+    border-radius: 50%;
+    border: rgba(251,251,251,0.08) solid 16rpx;
+    /* transform: rotateZ(-25deg); */
+}
+.disk_bg image{
+    position: absolute;
+    width: 574rpx;
+    height: 574rpx;
+    border-radius: 50%;
+}
+.page__ft{
+    position: fixed;
+     flex-direction:column;
+    bottom: 0;
+}   
+.page__ft-icon{
+    width: 750rpx;
+    height: 80rpx;
+    box-sizing: border-box;
+    border-top: 1rpx solid #2F2A2E;
+    justify-content: space-around;
+    background-color: black;
+    opacity: .4
+}
+.page__ft-icon image{
+    width: 46rpx;
+    height: 46rpx;
+}
+.page__ft-control{
+    height: 146rpx;
+    background-color: #E2E3E7;
+    width: 750rpx;
+    flex-direction:column;
+}
+.page__ft-conTime{
+    height: 38rpx;
+    font-size: 16rpx;
+    line-height: 60rpx;
+}
+.page__ft-conTri{
+    height: 108rpx;
+    display: flex;
+}
+.page__ft-conIcon{
+    height: 108rpx;
+    width: 108rpx;
+}
+.page__ft-conIcon image{
+    width: 46rpx;
+    height: 46rpx;
+}
+.page__ft-conPro{
+    height: 76rpx;
+    width: 534rpx;
+    background-color: #E9EDF1;
+    border-radius: 38rpx;
+    box-sizing: border-box;
+    border: 6rpx solid #D7D7DB;
+    overflow: hidden;
+    position: relative;
+}
+.page__ft-conPro image{
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+   
+}
+.page__ft-conList{
+    height: 108rpx;
+    width: 108rpx;
+}
+.page__ft-conList image{
+    width: 46rpx;
+    height: 46rpx;
+}
