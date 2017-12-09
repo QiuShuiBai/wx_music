@@ -1,45 +1,60 @@
+
 <image class='bg' src='../../images/test.png' mode="aspectFill" />
 <view class="page">
+    <view class="shadow {{showList==1?'showShadow':''}}" bindtap='hiddenList'></view>
     <view class="page__hd">
         <view class="page__hd-title">
-            <text>跳舞的梵谷</text>
-            <text>孙燕姿</text>
+            <text>{{songName}}</text>
+            <text>{{songer}}</text>
         </view>
     </view>
 
     <view class="page__bd"> 
         <!-- {{run==1?'runing':''}} -->
-        <image  bindtap='zzz' src='../../images/playing/play_needle.png' mode='aspectFit' class="needle {{run==1?'runing':''}}" />
-        <view class='disk_bg' bindtap='ccc'>
+        <image  bindtap='zzz' src='../../images/playing/play_needle.png' mode='aspectFit' class="needle {{run==0?'runNeedle':''}}" />
+        <view class="disk_bg"  style="transform: rotateZ({{rotate}}deg)">
             <image src="../../images/playing/placeholder_disk_play_song.png" />
             <image src="../../images/playing/play_disc.png" />
         </view>
     </view>
 
-    <view class="page__ft center">
+    <view class="page__ft center {{showList==1?'noTap':''}}">
         <view class='page__ft-icon center'>
-            <image src="../../images/musicLove.png" />
-            <image src="../../images/commit.png" />
-            <image src="../../images/more.png" />
+            <view hover-class="activity"  bindtap='changeSong' data-index="1"><image src="../../images/playing/prev.png" /></view>
+            <view hover-class="activity"><image src="../../images/musicLove.png" /></view>
+            <view hover-class="activity" bindtap='changeSong' data-index="2"><image src="../../images/playing/next.png" /></view>
         </view>
 
         <view class='page__ft-control center'>
             <view class='page__ft-conTime'>
-                <text>00:00</text>
-                <text>11:11</text>
+                <text>{{currentTime}}</text>
+                <text>/</text>
+                <text>{{time}}</text>
             </view>
             <view class='page__ft-conTri center'>
                 <view class='page__ft-conIcon center'>
                     <image src='../../images/playing/refrain.png' />
                 </view>
                 <view class='page__ft-conPro'>
-                    <image src='../../images/playing/play.png' bindtap='runing'/>
-                    <progress percent="0" stroke-width="64" activeColor="#434343" backgroundColor="#E9EDF1" />
+                    <view class='page__ft-proTri' style="left:{{left}}rpx;" bindtap='running'>
+                        <image src='../../images/playing/play.png' class="{{run==1?'runTri':''}}"/>
+                        <image src='../../images/playing/stop.png' class="{{run==0?'runTri':''}}"/>
+                    </view>
+                    <progress percent="{{progress}}" stroke-width="64" activeColor="#434343" backgroundColor="#E9EDF1" />
                 </view>
-                <view class='page__ft-conList center'>
+                <view class='page__ft-conList center' bindtap='showList'>
                     <image src='../../images/playing/list.png' />
                 </view>
             </view>
         </view>
+    </view>
+     <view class="page__songList {{showList==1?'showList':''}}">
+            <view>歌单：</view>
+            <block wx:for="{{music}}">
+                <view class="page__ListInfo cneter" data-index='{{index}}' bindtap='choiceSong'>
+                    <text>{{item.songName}}</text>
+                    <text>-{{item.songer}}</text>
+                </view>
+            </block>
     </view>
 </view>

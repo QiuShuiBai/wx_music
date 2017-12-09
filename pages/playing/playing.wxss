@@ -6,16 +6,16 @@
     z-index: -99;
     filter:blur(40rpx); 
     background-size: cover;
-    /* transform:rotate(45deg);  旋转*/
 }
 .page{
-    position: fixed;
+    height: 100vh;
 }
 .page__hd{
     background-color: black;
     position: static;
     opacity: .4;
 }
+/* -------------标题-------------- */
 .page__hd-title{
     box-sizing: border-box;
     margin-left: 40rpx;
@@ -24,6 +24,7 @@
     flex-direction:column;
     color: #FFFFFF;
 }
+/* ----------------标题文字-------------- */
 .page__hd-title text{
     font-size: 32rpx;
 }
@@ -35,8 +36,7 @@
     overflow: hidden;
     padding: 0;
 }
-
-
+/* --------------指针------------------ */
 .page__bd .needle{
     position: absolute;
     width: 190rpx;
@@ -44,13 +44,13 @@
     margin-left:336rpx;
     margin-top:-40rpx;  
     transform-origin: 38rpx 38rpx;
-    transform: rotateZ(0deg);
+    transition: transform 0.4s;
     z-index: 10;
 }
- .page__bd .runing{
-    transition: transform 0.4s; 
+.runNeedle{
     transform: rotateZ(-25deg);
-} 
+}
+/* --------------转盘--------------- */
 .disk_bg{
     margin: 0 72rpx;
     margin-top: 140rpx;
@@ -58,8 +58,10 @@
     height: 574rpx;
     border-radius: 50%;
     border: rgba(251,251,251,0.08) solid 16rpx;
-    /* transform: rotateZ(-25deg); */
+    animation: rotate-disk 20s infinite linear;
 }
+/* 旋转 */
+
 .disk_bg image{
     position: absolute;
     width: 574rpx;
@@ -68,7 +70,7 @@
 }
 .page__ft{
     position: fixed;
-     flex-direction:column;
+    flex-direction:column;
     bottom: 0;
 }   
 .page__ft-icon{
@@ -79,6 +81,16 @@
     justify-content: space-around;
     background-color: black;
     opacity: .4
+}
+.page__ft-icon view{
+    width: 250rpx;
+    height: 79rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.activity{
+    background-color: #D8D8D8;
 }
 .page__ft-icon image{
     width: 46rpx;
@@ -94,6 +106,15 @@
     height: 38rpx;
     font-size: 16rpx;
     line-height: 60rpx;
+    box-sizing: border-box;
+    color: #88888B;
+}
+.page__ft-conTime>text:first-child{
+    color: #2D2D2F;
+}
+.page__ft-conTime>text:nth-child(2){
+    padding: 0 10rpx;
+    font-size: 18rpx;
 }
 .page__ft-conTri{
     height: 108rpx;
@@ -110,26 +131,70 @@
 .page__ft-conPro{
     height: 76rpx;
     width: 534rpx;
-    background-color: #E9EDF1;
-    border-radius: 38rpx;
+    border-radius: 50rpx;
     box-sizing: border-box;
     border: 6rpx solid #D7D7DB;
     overflow: hidden;
-    position: relative;
+    position: relative; 
 }
-.page__ft-conPro image{
+.page__ft-proTri{
     width: 64rpx;
     height: 64rpx;
     position: absolute;
-    top: 0rpx;
-    left: 0rpx;
-   
+    top: 0;
+    left: 0;
+}
+.page__ft-conPro image{
+    width: 70rpx;
+    height: 64rpx;   
+}
+.runTri{
+    display: none;
 }
 .page__ft-conList{
     height: 108rpx;
+    
     width: 108rpx;
 }
 .page__ft-conList image{
     width: 46rpx;
     height: 46rpx;
+}
+.page__songList {
+    width: 750rpx;
+    position: absolute;
+    background-color: #E2E3E7;
+    z-index: 9999;
+    bottom: 0;
+    display: none;
+}
+.page__ListInfo{
+    box-sizing: border-box;
+    height: 70rpx;
+    border-top: 1rpx #FFFFFF solid;
+}
+.page__ListInfo text{
+    display: inline-block;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    color: #2F2A2E;
+}
+.page__ListInfo text:last-child{
+    font-size: 22rpx;
+    line-height: 22rpx;
+}
+.showList{
+    display: block;
+}
+.shadow{
+    width: 750rpx;
+    height: 100vh;
+    position: absolute;
+    z-index: 40;
+    background-color: #000000;
+    opacity: .7;
+    display: none;
+}
+.showShadow{
+    display: block;
 }
