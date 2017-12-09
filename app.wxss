@@ -1,5 +1,5 @@
 @import 'styles/weui.wxss';
-@import 'pages/common/playing.wxss';
+@import 'pages/common/running.wxss';
 
 .container{
   margin: 0;

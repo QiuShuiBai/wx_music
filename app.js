@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    running: 0,
+    music:'',
+    i:0
   }
 })
