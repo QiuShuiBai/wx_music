@@ -1,5 +1,5 @@
   <!-- 导入公共文件 页面正在播放图标 -->
-<import src="../common/playing.wxml"/> 
+<import src="../common/running.wxml"/> 
 <view class="page">
     <view class="page__hd center">
         <view class="page__hd-left center">
@@ -15,7 +15,7 @@
         </navigator>
 
         <!-- 引入图标 -->
-        <template is="playing" />
+        <template is="running" data='{{wRun}}'/>
 
         <view class="swiper-tab" >
             <view class="swiper-tab-item" data-index="0" bindtap="clickTab">

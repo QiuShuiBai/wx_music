@@ -43,7 +43,7 @@
 }
 .swiper-tab-item text{
     display: inline-block;
-    pointer-events: none;  
+    pointer-events: none;   
     color: #313638;
 }
 .active{
