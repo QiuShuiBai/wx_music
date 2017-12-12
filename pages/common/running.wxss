@@ -52,3 +52,33 @@
         height: 22rpx;
     }
 }
+
+
+
+.page__hd-stop {
+    width: 108rpx;
+    height: 88rpx;
+}
+
+.page__hd-stop:before {
+    display: block;
+    content: '';
+    width: 4rpx;
+    height: 48rpx;
+    position: absolute;
+    bottom: 0;
+    box-shadow: #fff 42rpx -20rpx 0 0px, #fff 70rpx -20rpx 0 0px;
+}
+
+
+
+.page__hd-stop:after {
+
+    display: block;
+    content: '';
+    width: 4rpx;
+    height: 22rpx;
+    position: absolute;
+    bottom: 0;
+    box-shadow: #fff 28rpx -20rpx 0 0px, #fff 56rpx -20rpx 0 0px;
+}

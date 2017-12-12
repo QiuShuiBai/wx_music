@@ -1,0 +1,6 @@
+<template name="running">
+<navigator url='../playing/playing' bindtap='running' hover-class="none">
+         <view class="page__hd-stop" wx:if="{{wRun==0}}"></view>  
+        <view class="page__hd-play" wx:if="{{wRun==1}}"></view>  
+</navigator>
+</template>

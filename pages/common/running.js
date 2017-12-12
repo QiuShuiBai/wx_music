@@ -1,2 +1,5 @@
 // pages/common/playing.js
-Page({})
+Page({
+    data: {},
+
+})

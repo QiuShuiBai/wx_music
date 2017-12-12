@@ -1,0 +1,21 @@
+.page{
+    overflow-y: scroll;
+    height: 100vh;
+    background-color: #E2E3E7;
+}
+.page__ListInfo{
+    box-sizing: border-box;
+    height:100rpx;
+    padding-left: 40rpx;
+    border-top: 2rpx #FFFFFF solid;
+}
+.page__ListInfo text{
+    display: inline-block;
+    font-size: 36rpx;
+    line-height: 100rpx;
+    color: #2F2A2E;
+}
+.page__ListInfo text:last-child{
+    font-size: 28rpx;
+    line-height: 28rpx;
+}

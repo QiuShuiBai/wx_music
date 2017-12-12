@@ -1,0 +1,17 @@
+<import src="../common/running.wxml"/>
+<view class='page'>
+    <view class="page__hd center">
+        <view class="page__hd-left center"></view>
+        <view class="page__hd-mid center">歌单</view>
+        <!-- 引入图标 -->
+        <template is="running" data='{{wRun}}'/>     
+    </view>
+    <view class='page__bd'>
+        <block wx:for="{{music}}">
+            <navigator url='../playing/playing?id={{index}}' bindtap='playing' hover-class="none"  class="page__ListInfo" data-index="{{index}}">
+                   <text>{{item.songName}}</text>
+                    <text>-{{item.songer}}</text>
+            </navigator>
+        </block>
+    </view>
+</view>
