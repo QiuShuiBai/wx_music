@@ -1,24 +1,49 @@
 <!-- 导入公共文件 页面正在播放图标 -->
-<import src="../common/playing.wxml"/>
+<import src="../common/running.wxml"/>
 <view class="page">
     <view class="page__hd center">
         <view class="page__hd-left center">更多</view>
 
         <view class="page__hd-mid center">我的音乐</view>
         <!-- 引入图标 -->
-         <template is="playing" />
+        <template is="running" data='{{wRun}}'/>
     </view>
 
     <view class="page__bd">
-    <block wx:for="{{[1, 2, 3, 4]}}">
-        <view class="page__bd-list">
-            <view class="page__bd-listImage"></view>
-            <view class="page__bd-listContent {{index==3?'active':''}}">
-                <text class="page__bd-contenWords">本地音乐</text>
-                <text class="page__bd-contenNum">53></text>
+        <block wx:for="{{musicList}}">
+            <view class="page__bd-mid center">
+                <view class="page__bd-midImage center">
+                    <image src='{{item.url}}' />
+                </view>
+                <view class="page__bd-midContent {{index==3?'lastList':''}}">
+                    <text class="page__bd-contenWords">{{item.words}}</text>
+                    <view class="page__bd-contenNum">
+                        <text>{{item.num}}</text>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <view class='page__bd-transit center'>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            <view class='page__bd-tranWords'>我创建的歌单</view>
+        </view>
+
+        <navigator url='../common/list?id=-1'>
+        <view class="page__bd-down center">        
+            <view class="page__bd-downImage center">
+                <image class='upImg' src='../../images/love.png' />
+                <image src='../../images/history.png' />
+            </view>
+
+            <view class="page__bd-downContent lastList">
+                <view style='font-size:32rpx;margin-top:10rpx;height:52rpx;'>我的音乐</view> 
+                <view style='font-size:24rpx;'>六首</view> 
             </view>
         </view>
-     </block>
+        </navigator>
+
     </view>
    
     <view class="page__ft">

@@ -1,13 +1,15 @@
-.page__bd-list{
-    background-color: red;
-    display: flex;
-}
-.page__bd-listImage{
+.page__bd-midImage{
     width: 140rpx;
     height: 110rpx;
-    background-color: blue;
 }
-.page__bd-listContent{
+
+/* 中部列表的图片 */
+.page__bd-midImage image{
+    height: 50rpx;
+    width: 50rpx;
+}
+
+.page__bd-midContent{
     box-sizing: border-box;
     height: 110rpx;
     width: 610rpx;
@@ -15,7 +17,71 @@
     border-bottom: 1rpx solid #E2E3E4;
     display: flex;
     justify-content: space-between;
+    color: #323233
 }
-.active{
+.lastList{
     border-bottom: 0rpx;
+}
+.page__bd-contenNum{
+    margin-right: 52rpx;
+    color: #979798
+}
+/* weui框架，伪元素，中部列表中的'大于号' */
+.page__bd-contenNum .weui-cell__ft_in-access:after{
+    top:-58rpx;
+    right:-30rpx;
+    height:20rpx;
+    width:20rpx;
+    border-color:E7E8E9;
+}
+
+
+/* -------------------------过渡分割盒子------------------------- */
+.page__bd-transit{
+    background-color: #EEEFF0;
+    height: 60rpx;
+}
+.page__bd-tranWords{
+    width: 688rpx;
+    margin-left: 62rpx;
+    font-size: 24rpx;
+    color: #5F6061;
+}
+/* weui框架，伪元素，中部列表中的'下置箭头' */
+.page__bd-transit .weui-cell__ft_in-access:after{
+    height:16rpx;
+    width:16rpx;
+    transform:rotate(135deg);
+    top:-2px;
+    right:-14px;
+}
+/* -----------------------歌单样式-------------------------- */
+.page__bd-downImage{
+    width: 140rpx;
+    height: 110rpx;
+    position: relative;
+}
+.page__bd-downImage image{
+    background-color: black;
+    width: 108rpx;
+    height: 108rpx;
+}
+.page__bd-downContent{
+    box-sizing: border-box;
+    width: 610rpx;
+    height:110rpx;
+    border-bottom: 1rpx solid #E2E3E4;    
+}
+.page__bd-downImage .upImg{
+    width: 56rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.page__ft{
+    height: 146rpx;
+    background-color: E2E3E7;
+    position: fixed;
 }
