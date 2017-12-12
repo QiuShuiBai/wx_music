@@ -25,9 +25,7 @@
     margin-left: 92rpx;
 }
 
-.page__bd{
-   padding-top:168rpx;
-}
+
 .swiper-tab {
     width: 100%;
     height: 80rpx;
@@ -43,7 +41,7 @@
 }
 .swiper-tab-item text{
     display: inline-block;
-    pointer-events: none;   
+    pointer-events: none;
     color: #313638;
 }
 .active{
@@ -52,19 +50,18 @@
 .page__bd-swiper {
     height: 100vh; 
 }
-
 /* ---------------------------第一个swiper页面--------------------------- */
-
-.page__bd-oneSwiper-music {
+.page__bd-musicSwiper {
     margin-top: 4rpx;
     height: 294rpx;
+    
 }
-.page__bd-oneSwiper-music image{
+.page__bd-musicSwiper image{
     width: 750rpx;
     height: 294rpx;
 }
 /*--------------------------以上为无缝滚动页面-------------------------*/
-.page__bd-oneSwiper-selector{
+.page__bd-selectorSwiper{
     border-bottom: 1rpx solid #FBFCFD;
 }
 .page__bd-selector-btn {

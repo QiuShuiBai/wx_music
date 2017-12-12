@@ -16,100 +16,52 @@
 
         <!-- 引入图标 -->
         <template is="running" data='{{wRun}}'/>
+    </view>
 
-        <view class="swiper-tab" >
-            <view class="swiper-tab-item" data-index="0" bindtap="clickTab">
-                <text class="{{currentTab==0?'active':''}}">音乐</text>
-            </view>
-            <view class="swiper-tab-item" data-index="1" bindtap="clickTab">
-                <text class="{{currentTab==1?'active':''}}" >视频</text>
-            </view>
-            <view class="swiper-tab-item" data-index="2" bindtap="clickTab">
-                <text class="{{currentTab==2?'active':''}}">电台</text>
-            </view>
+
+    <view class="page__bd">      
+        <swiper class="page__bd-musicSwiper" circular='true' autoplay="{{autoplay}}" indicator-dots='{{autoplay}}' interval='3000'>
+        
+            <swiper-item> 
+                        <image src="{{oneSwiperMusic[0]}}" data-id='0' bindload = "imageOnload" />
+            </swiper-item>
+
+            <block wx:for="{{showImage}}">
+                    <swiper-item wx:if="{{index!='0'}}"> 
+                        <image src="{{item}}" data-id='{{index}}'/>
+                    </swiper-item>
+            </block>
+
+        </swiper>
+
+        <view class='page__bd-selectorSwiper'>
+            <block wx:for="{{listIcon}}">
+                <navigator hover-class="none" class='page__bd-selector-btn' url='../common/list'>
+                    <view class='page__bd-selector-img center'>
+                        <image src='{{item.url}}' />
+                    </view>
+                    <view class='page__bd-selector-words'>{{item.words}}</view>
+                </navigator>
+            </block>
         </view>
 
-    </view>
+        <view class='page__bd-propeSwiper'>
+            <view class='page__bd-propr-title'>
+                <text>推荐歌单 ></text>
+            </view>
 
-    <view class="page__bd">
-        <swiper class="page__bd-swiper;" current="{{currentTab}}" bindchange="swiperTab" duration="0">
-            <swiper-item class="page__bd-oneSwiper" >
-                <swiper class="page__bd-oneSwiper-music" circular='true' autoplay="{{autoplay}}" indicator-dots='{{autoplay}}' interval='3000'>
-                
-                <swiper-item> 
-                           <image src="{{oneSwiperMusic[0]}}" data-id='0' bindload = "imageOnload" />
-                </swiper-item>
-
-                <block wx:for="{{showImage}}">
-                        <swiper-item wx:if="{{index!='0'}}"> 
-                           <image src="{{item}}" data-id='{{index}}'/>
-                        </swiper-item>
+            <view class='page__bd-propr-content'>
+                <block wx:for="{{recommendList}}">
+                    <navigator hover-class="none" class='page__bd-prope-btn' url='../common/list?id={{index}}'>
+                            <view class='page__bd-prope-img'>
+                            <image src='{{item.url}}' />
+                        </view>
+                        <view class='page__bd-prope-words'>
+                            <text>{{item.words}}</text>
+                        </view>
+                    </navigator>
                 </block>
-
-                </swiper>
-
-                <view class='page__bd-oneSwiper-selector'>
-                    <block wx:for="{{listIcon}}">
-                        <navigator hover-class="none" class='page__bd-selector-btn' url='../account/account'>
-                            <view class='page__bd-selector-img center'>
-                                <image src='{{item.url}}' />
-                            </view>
-                            <view class='page__bd-selector-words'>{{item.words}}</view>
-                        </navigator>
-                    </block>
-                </view>
-
-                <view class='page__bd-oneSwiper-prope'>
-                    <view class='page__bd-propr-title'>
-                        <text>推荐歌单 ></text>
-                    </view>
-
-                    <view class='page__bd-propr-content'>
-                        <block wx:for="{{recommendList}}">
-                            <navigator hover-class="none" class='page__bd-prope-btn' url='../account/account'>
-                                 <view class='page__bd-prope-img'>
-                                    <image src='{{item.url}}' />
-                                </view>
-                                <view class='page__bd-prope-words'>
-                                    <text>{{item.words}}</text>
-                                </view>
-                            </navigator>
-                        </block>
-                    </view>
-                </view>
-
-                <view class='page__bd-oneSwiper-prope'>
-                    <view class='page__bd-propr-title'>
-                        <text>推荐歌单 ></text>
-                    </view>
-
-                    <view class='page__bd-propr-content'>
-                        <block wx:for="{{[1, 2, 3, 4, 5, 6]}}">
-                            <navigator hover-class="none" class='page__bd-prope-btn' url='../account/account'>
-                                 <view class='page__bd-prope-img'>
-
-                                </view>
-                                <view class='page__bd-prope-words'>
-                                
-                                </view>
-                            </navigator>
-                        </block>
-                    </view>
-                </view>
-            </swiper-item>
-
-
-            <swiper-item>
-                2
-            </swiper-item>
-
-            <swiper-item>
-                3
-            </swiper-item>
-        </swiper>
-    </view>
-
-    <view class="page__ft">
-
+            </view>
+        </view>
     </view>
 </view>

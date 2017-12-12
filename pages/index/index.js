@@ -19,7 +19,7 @@ Page({
     // 界面的状态 === 数据的值
     // mvvm区分于dom api的本质
     clickTab: function (e) {
-        // 状态改变，data binding 值 
+        // 状态改变，data binding值
         var index = e.target.dataset.index;
         this.setData({
             currentTab: index,
@@ -33,17 +33,16 @@ Page({
         });
     },
     onLoad: function () {
-        
         wx.request({
-            url: "https://www.easy-mock.com/mock/5a0a4caeb31e3216824d4db7/getHoWoInfo/Music",
-            success: (response) => {
-                this.setData({
-                    'oneSwiperMusic[0]': response.data.data.oneSwiperImg[0],
-                    recommendList: response.data.data.recommendList,
-                    allImage: response.data.data.oneSwiperImg
-                });
-            }
-        })
+        url: "https://www.easy-mock.com/mock/5a2ac29a0d73d175e0478566/music/info",
+        success: (response) => {
+            this.setData({
+                'oneSwiperMusic[0]': response.data.oneSwiperImg[0],
+                recommendList: response.data.recommendList,
+                allImage: response.data.oneSwiperImg
+            });
+        }
+    })
     },
     imageOnload:function(){
         this.setData({
