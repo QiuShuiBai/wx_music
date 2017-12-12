@@ -8,6 +8,7 @@
     background-size: cover;
 }
 .page{
+    width: 100vw;
     height: 100vh;
 }
 .page__hd{
@@ -67,6 +68,11 @@
     width: 574rpx;
     height: 574rpx;
     border-radius: 50%;
+}
+.disk_bg .firstImage{
+    width: 460rpx;
+    height: 460rpx;
+    position: static;
 }
 .page__ft{
     position: fixed;
@@ -170,13 +176,13 @@
 }
 .page__ListInfo{
     box-sizing: border-box;
-    height: 70rpx;
+    height:100rpx;
     border-top: 1rpx #FFFFFF solid;
 }
 .page__ListInfo text{
     display: inline-block;
     font-size: 32rpx;
-    line-height: 32rpx;
+    line-height: 100rpx;
     color: #2F2A2E;
 }
 .page__ListInfo text:last-child{
@@ -197,4 +203,8 @@
 }
 .showShadow{
     display: block;
+}
+.first{
+    height: 80rpx;
+    line-height: 80rpx;
 }

@@ -27,7 +27,9 @@ Page({
         songer:"",
         songName:"",
         music:[],
-        time:""
+        time:"",
+        highImg:"",
+        lowImg:""
     },
     nameBackMusic:function(){
         backgroundAudioManager.src = this.data.music[i].url;
@@ -44,26 +46,37 @@ Page({
         this.playMusic();
     },
     _next: function () {
+        var timeCount;
         clearInterval(proSet);
         clearInterval(rotSet);
         clearInterval(timeSet);
         proSet = setInterval(() => {
             if (this.data.progress >= 100) {
-                clearInterval(proSet);
-                clearInterval(rotSet);
+                i++;
+                if(i==this.data.music.length){
+                    i=0;
+                }
+                app.globalData.i=i;
+                backgroundAudioManager.stop();                            
+                this.nameBackMusic();
+                timeCount = 0;
                 this.setData({
                     progress: 0,
-                    run: 0,
-                    left: 0
+                    left: 0,
+                    songTime: this.data.music[i].songTime,
+                    songer: this.data.music[i].songer,
+                    songName: this.data.music[i].songName,
+                    time: secondToDate(this.data.music[i].songTime)
                 });
             }
             else if (this.data.run == 0) {
                 clearInterval(proSet);
                 clearInterval(rotSet);
+                clearInterval(timeSet);
             }
             this.setData({
                 progress: 0.01 + this.data.progress,
-                left: 0.0468 + this.data.left
+                left: 0.0458 + this.data.left
             });
         }, this.data.music[i].songTime / 10);
         rotSet = setInterval(() => {
@@ -71,11 +84,15 @@ Page({
                 rotate: 1 + this.data.rotate,
             });
         }, 24);
-        var time = 0;
+        timeCount = backgroundAudioManager.currentTime;
+        if (typeof (backgroundAudioManager.currentTime) === "undefined")
+        {
+            timeCount = 0;
+        }
         timeSet = setInterval(()=>{
-            time++;
+            timeCount++;
             this.setData({
-                currentTime: secondToDate(time),
+                currentTime: secondToDate(timeCount),
             });
         },1000)
     },
@@ -83,12 +100,11 @@ Page({
         if (this.data.run == 1) {
             if (backgroundAudioManager.paused) {
                 backgroundAudioManager.play();
-
             }
             else {
-                backgroundAudioManager.pause()
+                backgroundAudioManager.stop()
                 this.nameBackMusic();
-            }
+            }           
             this._next();
         }
         else {
@@ -96,6 +112,7 @@ Page({
         }
     },
      changeSong:function(e){
+         
          if(e.currentTarget.dataset.index == 1){
              i--;
              if (i == -1) {
@@ -113,10 +130,13 @@ Page({
             rotate: 0,
             progress: 0,
             left: 0,
+            currentTime: "00:00",
             songTime: this.data.music[i].songTime,
             songer: this.data.music[i].songer,
             songName: this.data.music[i].songName,
-            time: secondToDate(this.data.music[i].songTime)
+            time: secondToDate(this.data.music[i].songTime),
+            highImg: app.globalData.nowMusic[i].highImage,
+            lowImg: app.globalData.nowMusic[i].lowImage
         })
         if(this.data.run==0){
             this.nameBackMusic();
@@ -126,7 +146,10 @@ Page({
             app.globalData.running=1;
             this._next();
         }
-        this.playMusic();
+        
+        backgroundAudioManager.stop();
+        this.nameBackMusic();
+        this._next();
         
     },
     showList:function(){
@@ -148,43 +171,61 @@ Page({
             rotate: 0,
             progress: 0,
             left: 0,
+            currentTime: "00:00",
             songTime: this.data.music[i].songTime,
             songer: this.data.music[i].songer,
             songName: this.data.music[i].songName,
-            time: secondToDate(this.data.music[i].songTime)
+            time: secondToDate(this.data.music[i].songTime),
+            highImg: app.globalData.nowMusic[i].highImage,
+            lowImg: app.globalData.nowMusic[i].lowImage
         })
         backgroundAudioManager.stop();
         this.nameBackMusic();
         this._next();
     },
-    onLoad: function (options) {
-       wx.request({
-           url: "https://www.easy-mock.com/mock/5a2ac29a0d73d175e0478566/music/list",
-           method: 'GET',
-           success:  (res)=>{
-                this.setData({
-                    music:res.data.music,
-                    songTime: res.data.music[i].songTime,
-                    songer: res.data.music[i].songer,
-                    songName: res.data.music[i].songName,
-                    time: secondToDate(res.data.music[i].songTime)
-                })
-                app.globalData.music=this.data.music;
-           }
-       })
+    onLoad: function (options) { 
+
+        if (options.id>=0) {
+            i = app.globalData.i;
+            console.log(app.globalData.i);
+            app.globalData.running = 1;
+            this.setData({
+                run:1,
+                music: app.globalData.nowMusic,
+                songTime: app.globalData.nowMusic[i].songTime,
+                songer: app.globalData.nowMusic[i].songer,
+                songName: app.globalData.nowMusic[i].songName,
+                time: secondToDate(app.globalData.nowMusic[i].songTime),
+                highImg: app.globalData.nowMusic[i].highImage,
+                lowImg: app.globalData.nowMusic[i].lowImage
+            })
+            backgroundAudioManager.stop();
+            this.nameBackMusic();
+            this._next();
+        }
+        this.setData({
+            music: app.globalData.nowMusic,
+            songTime: app.globalData.nowMusic[i].songTime,
+            songer: app.globalData.nowMusic[i].songer,
+            songName: app.globalData.nowMusic[i].songName,
+            time: secondToDate(app.globalData.nowMusic[i].songTime),
+            highImg: app.globalData.nowMusic[i].highImage,
+            lowImg: app.globalData.nowMusic[i].lowImage
+        })
+        
     },
     onShow: function () {
-        if (typeof (backgroundAudioManager.paused) !== "undefined") {
-            var proNum = (backgroundAudioManager.currentTime / backgroundAudioManager.duration) * 100;
+        if (typeof (backgroundAudioManager.paused) !== "undefined") {            
+            var proNum = (backgroundAudioManager.currentTime / (backgroundAudioManager.duration + 0.00000000000000001)) * 100;
             var leftNum = proNum / 100 * 456;
             i = app.globalData.i;
             this.setData({
                 progress: proNum,
                 left: leftNum,
-                music: app.globalData.music,
-                songTime: app.globalData.music[i].songTime,
-                songer: app.globalData.music[i].songer,
-                songName: app.globalData.music[i].songName
+                music: app.globalData.nowMusic,
+                songTime: app.globalData.nowMusic[i].songTime,
+                songer: app.globalData.nowMusic[i].songer,
+                songName: app.globalData.nowMusic[i].songName,
             })
             if (backgroundAudioManager.paused == false) {
                 this.setData({
