@@ -1,0 +1,27 @@
+<view class='page'>
+    <view class='top center'>
+        <view class='headImg'>
+            <image src='../../images/test.png' />
+
+            <text>秋水白</text>
+        </view>
+    </view>
+    <view class='mid'>
+    <block wx:for="{{musicList}}">
+        <view class="page__bd-mid center">
+            <view class="page__bd-midImage center">
+                <image src='{{item.url}}' />
+            </view>
+            <view class="page__bd-midContent">
+                <text class="page__bd-contenWords">{{item.words}}</text>
+                <view class="page__bd-contenNum">
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </view>
+        </view>
+    </block>
+    </view>
+    <view class='btnLeave'>
+        <button>退出登录</button>
+    </view>
+</view>
